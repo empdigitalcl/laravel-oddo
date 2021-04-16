@@ -12,12 +12,12 @@ class OddoController extends Controller
     public function index(){
         $odoo = new \Edujugon\Laradoo\Odoo();
         $version = $odoo->version();
-        var_dump($version);
-        $userId= $odoo->getUid();
+
+        // dd($version);
+        $userId = $odoo->getUid();
         echo 'UserId: '.$userId.'';
-        /* $ids = $odoo->where('customer', '=', true)
-            ->search('res.partner');
-        var_dump($ids); */
+        $ids = $odoo->limit(30)->fields('default_code','cantidad_disponible_bodega_temple')->get('product.template');
+        dd($ids);
     }
     
 }

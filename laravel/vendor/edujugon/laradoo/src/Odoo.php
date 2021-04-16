@@ -628,6 +628,10 @@ class Odoo
         $this->common = $this->getClient($urlCommon);
         $this->object = $this->getClient($urlActions);
 
+        echo $db.'<br>';
+        echo $username.'<br>';
+        echo $password.'<br>';
+        print_r($array).'<br>';
         $this->uid = $this->common->authenticate($db, $username, $password, $array);
 
         if (!is_int($this->uid)) {
